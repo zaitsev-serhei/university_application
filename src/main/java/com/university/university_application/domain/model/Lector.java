@@ -1,10 +1,12 @@
 package com.university.university_application.domain.model;
 
+import com.university.university_application.common.Degree;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import java.math.BigDecimal;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -14,5 +16,6 @@ public class Lector {
     private Long id;
     private String firstName;
     private String lastName;
-    private double salary;
+    private Degree degree;
+    private BigDecimal salary;
 }
