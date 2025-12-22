@@ -5,8 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import java.util.HashSet;
-import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,12 +14,4 @@ public class Department {
     private Long id;
     private String name;
     private String headName;
-    private Set<Lector> employees;
-
-    public Department(Long id, String name, String headName) {
-        this.id = id;
-        this.name = name;
-        this.headName = headName;
-        this.employees = new HashSet();
-    }
 }

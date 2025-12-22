@@ -11,6 +11,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "lectors")
@@ -28,5 +29,5 @@ public class LectorEntity {
     @Column(nullable = false)
     private Degree degree;
     @Column(precision = 8, scale = 2)
-    private double salary;
+    private BigDecimal salary;
 }
