@@ -14,6 +14,9 @@ use command line or IDEA tools to run the application
 
 mvn spring-boot:run (for Windows cmd/ mvn should be installed and added to Path)
 
+# DB Visualization
+<img width="1046" height="589" alt="db" src="https://github.com/user-attachments/assets/817b7463-01b4-42f8-8fa9-c8b12d93bc0c" />
+
 # Screenshots
 SQL tests for scripts from the application in pgAdmin
 
