@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 @RequiredArgsConstructor
 @Component
 public class EmployeeCountCommand implements CommandLineRequest {
-    private final Pattern pattern = Pattern.compile("^Show count of employee for ([a-zA-z]+)");
+    private final Pattern pattern = Pattern.compile("^Show count of employee for ([a-zA-z ]+ {0,2})");
     private final UniversityService service;
 
     @Override
