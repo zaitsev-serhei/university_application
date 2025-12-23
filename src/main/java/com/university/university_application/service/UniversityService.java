@@ -1,6 +1,6 @@
 package com.university.university_application.service;
 
-import com.university.university_application.common.Degree;
+import com.university.university_application.common.enums.Degree;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;

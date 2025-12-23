@@ -6,12 +6,14 @@ import com.university.university_application.domain.model.Lector;
 import com.university.university_application.domain.repository.LectorRepository;
 import com.university.university_application.mapper.LectorMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Repository;
 import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Repository
 @RequiredArgsConstructor
 public class LectorAdapter implements LectorRepository {
     private final JpaLectorRepository jpaRepository;

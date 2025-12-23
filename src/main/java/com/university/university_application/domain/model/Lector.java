@@ -1,6 +1,6 @@
 package com.university.university_application.domain.model;
 
-import com.university.university_application.common.Degree;
+import com.university.university_application.common.enums.Degree;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

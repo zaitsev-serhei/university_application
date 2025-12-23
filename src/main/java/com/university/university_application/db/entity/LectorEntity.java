@@ -1,6 +1,6 @@
 package com.university.university_application.db.entity;
 
-import com.university.university_application.common.Degree;
+import com.university.university_application.common.enums.Degree;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
