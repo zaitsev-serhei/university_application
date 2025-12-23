@@ -1,11 +1,12 @@
 package com.university.university_application.service.impl;
 
-import com.university.university_application.common.Degree;
+import com.university.university_application.common.enums.Degree;
 import com.university.university_application.domain.model.Lector;
 import com.university.university_application.domain.repository.DepartmentRepository;
 import com.university.university_application.domain.repository.LectorRepository;
 import com.university.university_application.service.UniversityService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Component
 @RequiredArgsConstructor
 public class UniversityServiceImpl implements UniversityService {
     private final DepartmentRepository departmentRepository;
