@@ -18,16 +18,16 @@ public class DepartmentHeadCommand implements CommandLineRequest {
     public void execute(String input) {
         Matcher matcher = pattern.matcher(input);
         if (!matcher.matches()) {
-            System.out.println("Something went wrong...");
+            System.out.println("Something went wrong...  Try again.");
         }
         String depName = matcher.group(1).trim();
         Optional<String> head = service.findHeadByDepartmentName(depName);
-        if(head.isPresent()) {
+        if (head.isPresent()) {
             String headStr = head.get();
             System.out.println(headStr);
             return;
         }
-        System.out.println("There is no head in department");
+        System.out.println("There is no head in department " + depName);
     }
 
     @Override

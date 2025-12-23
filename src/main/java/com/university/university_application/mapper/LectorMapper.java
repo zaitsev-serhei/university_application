@@ -3,7 +3,9 @@ package com.university.university_application.mapper;
 import com.university.university_application.db.entity.LectorEntity;
 import com.university.university_application.domain.model.Lector;
 import org.springframework.stereotype.Component;
-
+/*
+    Consider mapstruck library usage for auto-generation of mappers
+ */
 @Component
 public class LectorMapper {
     public LectorEntity toEntity(Lector lector){
