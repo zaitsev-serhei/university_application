@@ -4,6 +4,7 @@ import com.university.university_application.service.UniversityService;
 import com.university.university_application.util.CommandLineRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+import java.math.BigDecimal;
 import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -11,7 +12,7 @@ import java.util.regex.Pattern;
 @RequiredArgsConstructor
 @Component
 public class AvgSalaryCommand implements CommandLineRequest {
-    private final Pattern pattern = Pattern.compile("^Show the average salary for the department ([a-zA-z]+)");
+    private final Pattern pattern = Pattern.compile("^Show the average salary for the department ([a-zA-z ]+ {0,2})");
     private final UniversityService service;
 
     @Override
@@ -21,12 +22,12 @@ public class AvgSalaryCommand implements CommandLineRequest {
             System.out.println("Something went wrong...");
         }
         String depName = matcher.group(1);
-        Optional<Long> result = service.getEmployeeCountByDepartmentName(depName);
+        Optional<BigDecimal> result = service.findAvgSalaryByDepartmentName(depName);
         if (result.isEmpty()) {
             System.out.println("Nothing to show");
             return;
         }
-        System.out.println(result.get());
+        System.out.println(result.get().setScale(2));
     }
 
     @Override

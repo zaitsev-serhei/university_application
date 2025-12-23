@@ -9,6 +9,7 @@ import java.util.regex.Pattern;
 @Component
 @RequiredArgsConstructor
 public class ConsoleReader implements CommandLineRunner {
+    //strict match on letters only. Consider update for additional characters, e.g. '-'
     private final Pattern VALID_PATTER = Pattern.compile("[a-zA-Z ]+");
     private final ConsoleInputHandler handler;
 
@@ -23,6 +24,9 @@ public class ConsoleReader implements CommandLineRunner {
                 System.out.println("THANK YOU AND GOOD BUY");
                 break;
             }
+            if ("/d".equalsIgnoreCase(input) || "dep".equalsIgnoreCase(input)) {
+                departmentInfo();
+            }
             if ("/h".equalsIgnoreCase(input) || "help".equalsIgnoreCase(input)) {
                 helpMenu();
             }
@@ -36,6 +40,7 @@ public class ConsoleReader implements CommandLineRunner {
 
     private boolean isValid(String input) {
         if (input == null || input.length() > 100) {
+            System.out.println("Invalid characters in line");
             return false;
         }
         return VALID_PATTER.matcher(input.trim()).matches();
@@ -44,6 +49,7 @@ public class ConsoleReader implements CommandLineRunner {
     private void helpMenu() {
         System.out.println("" +
                 "\n Available commands are:\n" +
+                "/d | dep -- show departments\n" +
                 "Who is head of department {department_name}\n" +
                 "Show {department_name} statistics.\n" +
                 "Show the average salary for the department {department_name}.\n" +
@@ -51,5 +57,13 @@ public class ConsoleReader implements CommandLineRunner {
                 "Global search by {template}.\n" +
                 "# -- Make sure to enter proper department name -- #\n"
         );
+    }
+
+    private void departmentInfo(){
+        System.out.println("Computer Science\n"+
+                "Mathematics\n"+
+                "Physics\n"+
+                "History\n"+
+                "Biology\n");
     }
 }

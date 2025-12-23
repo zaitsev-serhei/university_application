@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 @RequiredArgsConstructor
 @Component
 public class StatisticCommand implements CommandLineRequest {
-    private final Pattern pattern = Pattern.compile("^Show ([a-zA-z]+) statistic");
+    private final Pattern pattern = Pattern.compile("^Show ([a-zA-z ]+ {0,2}) statistic");
     private final UniversityService service;
 
     @Override
