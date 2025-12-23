@@ -7,6 +7,7 @@ import com.university.university_application.domain.repository.LectorRepository;
 import com.university.university_application.service.UniversityService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.List;
@@ -14,12 +15,12 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-@Component
+@Service
 @RequiredArgsConstructor
 public class UniversityServiceImpl implements UniversityService {
     private final DepartmentRepository departmentRepository;
     private final LectorRepository lectorRepository;
-
+    //consider creating a cached set of departments to use in help menu. e.g. @PostConstruct
     @Override
     public Optional<String> findHeadByDepartmentName(String departmentName) {
         if (departmentName == null || departmentName.isBlank()) {

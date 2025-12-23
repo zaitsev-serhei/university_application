@@ -58,7 +58,7 @@ public class ConsoleReader implements CommandLineRunner {
                 "# -- Make sure to enter proper department name -- #\n"
         );
     }
-
+    //add dynamic set of department after as component
     private void departmentInfo(){
         System.out.println("Computer Science\n"+
                 "Mathematics\n"+

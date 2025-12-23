@@ -18,12 +18,12 @@ public class EmployeeCountCommand implements CommandLineRequest {
     public void execute(String input) {
         Matcher matcher = pattern.matcher(input);
         if (!matcher.matches()) {
-            System.out.println("Something went wrong...");
+            System.out.println("Something went wrong...  Try again.");
         }
         String depName = matcher.group(1);
         Optional<Long> result = service.getEmployeeCountByDepartmentName(depName);
         if (result.isEmpty()) {
-            System.out.println("No employees in the department");
+            System.out.println("No employees in the department " + depName);
             return;
         }
         System.out.println(result.get());
