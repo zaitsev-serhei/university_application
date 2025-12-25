@@ -1,5 +1,6 @@
 package com.university.university_application.db.adapter;
 
+import com.university.university_application.db.custom.DepartmentName;
 import com.university.university_application.db.entity.DepartmentEntity;
 import com.university.university_application.db.repository.JpaDepartmentRepository;
 import com.university.university_application.domain.model.Department;
@@ -8,6 +9,8 @@ import com.university.university_application.mapper.DepartmentMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Repository
 @RequiredArgsConstructor
@@ -27,5 +30,10 @@ public class DepartmentAdapter implements DepartmentRepository {
             return Optional.of(result.get().getHeadName());
         }
         return Optional.empty();
+    }
+
+    @Override
+    public Set<String> findAllDepartmentNames() {
+        return jpaRepository.findAllBy().stream().map(DepartmentName::getName).collect(Collectors.toSet());
     }
 }

@@ -1,5 +1,6 @@
 package com.university.university_application.handler;
 
+import com.university.university_application.service.HelpMenuService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -12,6 +13,7 @@ public class ConsoleReader implements CommandLineRunner {
     //strict match on letters only. Consider update for additional characters, e.g. '-'
     private final Pattern VALID_PATTER = Pattern.compile("[a-zA-Z ]+");
     private final ConsoleInputHandler handler;
+    private final HelpMenuService helpMenu;
 
     @Override
     public void run(String... args) throws Exception {
@@ -25,10 +27,12 @@ public class ConsoleReader implements CommandLineRunner {
                 break;
             }
             if ("/d".equalsIgnoreCase(input) || "dep".equalsIgnoreCase(input)) {
-                departmentInfo();
+                helpMenu.showAvailableDepartments();
+                continue;
             }
             if ("/h".equalsIgnoreCase(input) || "help".equalsIgnoreCase(input)) {
-                helpMenu();
+                helpMenu.showHelpMenu();
+                continue;
             }
             if (isValid(input)) {
                 if(!handler.handleInput(input)){
@@ -44,26 +48,5 @@ public class ConsoleReader implements CommandLineRunner {
             return false;
         }
         return VALID_PATTER.matcher(input.trim()).matches();
-    }
-
-    private void helpMenu() {
-        System.out.println("" +
-                "\n Available commands are:\n" +
-                "/d | dep -- show departments\n" +
-                "Who is head of department {department_name}\n" +
-                "Show {department_name} statistics.\n" +
-                "Show the average salary for the department {department_name}.\n" +
-                "Show count of employee for {department_name}.\n" +
-                "Global search by {template}.\n" +
-                "# -- Make sure to enter proper department name -- #\n"
-        );
-    }
-    //add dynamic set of department after as component
-    private void departmentInfo(){
-        System.out.println("Computer Science\n"+
-                "Mathematics\n"+
-                "Physics\n"+
-                "History\n"+
-                "Biology\n");
     }
 }
