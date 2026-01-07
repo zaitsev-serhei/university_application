@@ -18,14 +18,14 @@ public class GlobalSearchCommand implements CommandLineRequest {
     public void execute(String input) {
         Matcher matcher = pattern.matcher(input);
         if (!matcher.matches()) {
-            System.out.println("Something went wrong...");
+            System.out.println("Something went wrong...  Try again.");
         }
-        String depName = matcher.group(1);
-        List<String> result = service.globalSearch(depName);
+        String template = matcher.group(1);
+        List<String> result = service.globalSearch(template);
         if (result.isEmpty()) {
-            System.out.println("No match in global search! Try something else");
+            System.out.println("No match in global search for " + template + "! Try something else");
         }
-        String formattedLine= String.join(", ",result);
+        String formattedLine = String.join(", ", result);
         System.out.println(formattedLine);
     }
 

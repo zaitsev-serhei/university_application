@@ -19,12 +19,12 @@ public class AvgSalaryCommand implements CommandLineRequest {
     public void execute(String input) {
         Matcher matcher = pattern.matcher(input);
         if (!matcher.matches()) {
-            System.out.println("Something went wrong...");
+            System.out.println("Something went wrong... Try again.");
         }
         String depName = matcher.group(1);
         Optional<BigDecimal> result = service.findAvgSalaryByDepartmentName(depName);
         if (result.isEmpty()) {
-            System.out.println("Nothing to show");
+            System.out.println("Nothing to show for " + depName);
             return;
         }
         System.out.println(result.get().setScale(2));

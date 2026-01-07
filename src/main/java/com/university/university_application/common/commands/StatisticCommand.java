@@ -19,12 +19,12 @@ public class StatisticCommand implements CommandLineRequest {
     public void execute(String input) {
         Matcher matcher = pattern.matcher(input);
         if (!matcher.matches()) {
-            System.out.println("Something went wrong...");
+            System.out.println("Something went wrong...  Try again.");
         }
         String depName = matcher.group(1);
         Map<Degree, Long> result = service.getStatisticForDepartment(depName);
         if (result.isEmpty()) {
-            System.out.println("Noting to display for department");
+            System.out.println("Noting to display for department " + depName);
             return;
         }
         result.entrySet().forEach(e -> {
